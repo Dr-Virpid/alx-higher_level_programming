@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 
 if __name__ == "__main__":
-    from sys import argv
+    from sys import argv, exit as exi
     from calculator_1 import add, sub, mul, div
-    
+
     argc = len(argv) - 1
 
     if argc != 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        exit(1)
+        exi(1)
 
     sign = argv[2]
     a = int(argv[1])
@@ -24,5 +24,5 @@ if __name__ == "__main__":
         res = div(a, b)
     else:
         print("Unknown operator. Available operators: +, -, * and /")
-        exit(1)
+        exi(1)
     print("{} {} {} = {}".format(a, sign, b, res))
