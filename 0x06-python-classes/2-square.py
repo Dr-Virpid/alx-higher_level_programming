@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """A module containing Square Class"""
 
+
 class Square:
     """A class for creating a mathematical Square"""
 
