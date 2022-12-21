@@ -10,7 +10,7 @@ class Square:
     def __init__(self, size=0):
         """Initialize the square object
         """
-        self.__size = size
+        self.size = size
 
     @property
     def size(self):
@@ -36,8 +36,8 @@ class Square:
     def my_print(self):
         """Prints in stdout the square with the character #
         """
-        for i in range(self.__size ** 2):
-            if i > 0 and i % self.__size == 0:
+        for i in range(self.size ** 2):
+            if i > 0 and i % self.size == 0:
                 print()
             print('#', end='')
         print()
