@@ -1,0 +1,84 @@
+The ``0-add_integer`` module
+==============================
+
+Testing ``add_integer`` function
+---------------------------------
+
+[*] Import function from the module
+    >>> add_integer = __import__('0-add_integer').add_integer
+
+[*] Module and function should have a doc
+    >>> len(__import__('0-add_integer').__doc__) > 0
+    True
+    >>> len(__import__('0-add_integer').add_integer.__doc__) > 0
+    True
+
+[*] Function can receive one or two parameters
+- Passing two integer
+    >>> add_integer(1, 2)
+    3
+
+- Passing one positive and one negative
+    >>> add_integer(100, -2)
+    98
+
+- Passing only one arguments: Float should be converted to integer
+    >>> add_integer(2.99)
+    100
+
+- Passing a float and an integer: Float should be converted to integer
+    >>> add_integer(100.3, -2)
+    98
+
+- Passing two float: Float should be converted to integer
+    >>> add_integer(0.3, 1.1)
+    1
+
+- Passing no arguments
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+[*] Function can only receive integer or a float
+- Passing a string and number
+    >>> add_integer("hey", 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+- Passing two strings
+    >>> add_integer("4", "5")
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+- Passing a tuple
+    >>> add_integer((4, 5))
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+- Passing a complex number and real number
+    >>> add_integer(21, 2 + 3j)
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+- Passing a boolean and real number
+    >>> add_integer(False, 2 + 3j)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+- Passing in infinity
+    >>> add_integer(float("inf"), 3)
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+
+- Passing in Nan
+    >>> add_integer(float("nan"), 3)
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
