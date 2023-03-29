@@ -16,7 +16,22 @@ class Square:
     def __str__(self):
         """Returns string for a Square instance
         """
-        return self.my_print()
+                string = ""
+
+        if self.size == 0:
+            return string
+
+        for i in range(self.position[1]):
+            string += "\n"
+        for i in range(self.size):
+            for j in range(self.position[0]):
+                string += " "
+            for k in range(self.size):
+                string += "#"
+            if i < self.size - 1:
+                string += "\n"
+
+        return string
 
     @property
     def size(self):
