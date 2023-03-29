@@ -16,7 +16,7 @@ class Square:
     def __str__(self):
         """Returns string for a Square instance
         """
-                string = ""
+        string = ""
 
         if self.size == 0:
             return string
