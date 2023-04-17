@@ -22,7 +22,7 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-    
+
     @staticmethod
     def int_checker(name, value):
         """checks if a value meets the int requirement"""
