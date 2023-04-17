@@ -38,7 +38,7 @@ class Rectangle(Base):
         """width getter"""
         return self.__width
 
-    @widdth.setter
+    @width.setter
     def width(self, value):
         """width setter"""
         Rectangle.int_checker("width", value)
