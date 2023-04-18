@@ -2,7 +2,7 @@
 """
 A Rectangle module
 """
-from models.bas import Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -90,14 +90,15 @@ class Rectangle(Base):
 
     def __str__(self):
         """return string representation of rectangle"""
-        return (
-                f"[{self.__class__.__name__}] "
-                f"({self.id}) {self.x}/{self.y} - "
-                f"{self.width}/{self.height}"
-               )
+        namr = "[{}]".format(self.__class__.__name__)
+        idr = "({:d})".format(self.id)
+        posr = "{:d}/{:d}".format(self.x, self.y)
+        dim = "{:d}/{:d}".format(self.width, self.height)
+        return namr + " " + idr + " " + posr + " - " + dim
 
     def update(self, *args, **kwargs):
-        if args:
+        """Update the class"""
+        if args is not None and len(args) > 0:
             arg_list = ["id", "width", "height", "x", "y"]
             for attr, arg in zip(arg_list, args):
                 setattr(self, attr, arg)
