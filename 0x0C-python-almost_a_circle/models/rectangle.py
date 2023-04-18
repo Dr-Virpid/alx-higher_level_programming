@@ -76,3 +76,31 @@ class Rectangle(Base):
         """y setter"""
         Rectangle.int_checker("y", value)
         self.__y = value
+
+    def area(self):
+        """Return area of the rectangle"""
+        return self.__width * self.__height
+
+    def display(self):
+        """Prints out the rectangle"""
+        print("\n" * self.y, end="")
+        for i in range(self.height):
+            print(" " * self.x, end="")
+            print("#" * self.width)
+
+    def __str__(self):
+        """return string representation of rectangle"""
+        return (
+                f"[{self.__class__.__name__}] "
+                f"({self.id}) {self.x}/{self.y} - "
+                f"{self.width}/{self.height}"
+               )
+
+    def update(self, *args, **kwargs):
+        if args:
+            arg_list = ["id", "width", "height", "x", "y"]
+            for attr, arg in zip(arg_list, args):
+                setattr(self, attr, arg)
+        else:
+            for attr, value in kwargs.items():
+                setattr(self, attr, value)
